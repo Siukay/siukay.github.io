@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            background-color: lightgray;
+            margin-top: 1em
+        }
+        
+        #main {
+            height: 150px
+        }
+        
+        @media(min-width:760px) {
+            #main,
+            #ads {
+                height: 150px;
+                display: inline-block;
+            }
+            #main {
+                width: 80%
+            }
+            #ads {
+                width: 15%
+            }
+        }
+        
+        @media(min-width:1000px) {
+            #main {
+                width: 60%
+            }
+            #sidebar {
+                height: 150px;
+                width: 20%;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    my web
+    <div id="header" style="background-color: red">header</div>
+    <div id="ads" style="background-color: yellow">Ads</div>
+    <div id="main" style="background-color:darkblue">main</div>
+    <div id="sidebar" style="background-color:green">sidebar</div>
+    <div>footer</div>
+</body>
+
+</html>
