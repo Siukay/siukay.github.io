@@ -15,44 +15,55 @@
     <link rel="stylesheet" type="text/css" href="css/csshake.min.css">
     <!-- 等待的效果-->
     <link rel="stylesheet" type="text/css" href="css/loaders.min.css">
+    <script src="js/echarts.min.js"></script>
     <style>
-        * {
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-        
-        #nav_style {
-            background: #2A3134;
-            width: 100%;
-            padding: 0 20px;
-            margin: 0 auto;
-            height: auto;
-            font-family: sans-serif;
-            color: rgba(255, 255, 255, 0.4);
-        }
-        
-        #main-ul {
-            display: flex;
-            justify-content: center;
-            /* margin: 30px auto; */
-            /* max-width: 760px; */
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
-        }
-        
-        #main-ul li {
+        nav {
             padding: 20px;
+            background-color: steelblue
         }
         
-        #main-ul a {
+        #navbar {
+            overflow: auto;
+            list-style-type: none;
+            display: block;
+            margin: auto;
+            width: 75%;
+            padding-left: 0;
+        }
+        
+        #navbar li {
+            height: 27px;
+            float: left;
+            margin-right: 0px;
+            border-right: 1px solid #aaa;
+            padding: 0 20px;
+            display: inline-block;
+        }
+        
+        #navbar li:last-child {
+            border-right: none;
+        }
+        
+        #navbar li a {
             text-decoration: none;
-            color: inherit;
+            color: #ccc;
+            font: 25px/1 Helvetica, Verdana, sans-serif;
+            text-transform: uppercase;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            transition: all 0.5s ease;
         }
         
-        #main-ul li:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.1);
+        #navbar li a:hover {
+            color: #333;
         }
-        /*media queries*/
+        
+        #navbar li.active a {
+            font-weight: bold;
+            color: #333;
+        }
         
         @media screen and (min-width: 0px) {
             .toggle-nav {
@@ -105,7 +116,7 @@
         #touming {
             background-color: #F0FFFF;
             opacity: 0.3;
-            height: 170px;
+            height: 160px;
             top: 370px;
             width: 100%;
             position: absolute;
@@ -114,8 +125,8 @@
         
         #p1 {
             color: whitesmoke;
-            font-family: Roboto;
-            font-size: 24px;
+            font-family: Helvetica;
+            font-size: 25px;
             text-align: center;
             line-height: 30px;
         }
@@ -188,17 +199,13 @@
     </div>
 
     <div id="touming"></div>
-    <div id="after-top"></div>
-
-    <nav id="nav_style">
-        <ul id="main-ul">
-            <li><a href="index.html">Home</a></li>
+    <nav>
+        <ul id="navbar">
+            <li><a href="#index.html">Home</a></li>
             <li><a href="#edu">Education Background</a></li>
             <li><a href="#intern">Internship Experience</a></li>
             <li><a href="#Skills">Skills</a></li>
-
         </ul>
-        <a href="#0" class="toggle-nav"></a>
     </nav>
 
     <h2 id="edu">Education Background</h2>
@@ -246,8 +253,70 @@
             </ul>
         </li>
     </ul>
+    <h2 id="Skills">following is one chart:</h2>
+    <div id="main" style="width:1000px;height:600px;"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        var xAxisData = [];
+        var data1 = [];
+        var data2 = [];
+        for (var i = 0; i < 100; i++) {
+            xAxisData.push('类目' + i);
+            data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
+            data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
+        }
 
-
+        option = {
+            title: {
+                text: '柱状图动画延迟'
+            },
+            legend: {
+                data: ['bar', 'bar2'],
+                align: 'left'
+            },
+            toolbox: {
+                // y: 'bottom',
+                feature: {
+                    magicType: {
+                        type: ['stack', 'tiled']
+                    },
+                    dataView: {},
+                    saveAsImage: {
+                        pixelRatio: 2
+                    }
+                }
+            },
+            tooltip: {},
+            xAxis: {
+                data: xAxisData,
+                silent: false,
+                splitLine: {
+                    show: false
+                }
+            },
+            yAxis: {},
+            series: [{
+                name: 'bar',
+                type: 'bar',
+                data: data1,
+                animationDelay: function(idx) {
+                    return idx * 10;
+                }
+            }, {
+                name: 'bar2',
+                type: 'bar',
+                data: data2,
+                animationDelay: function(idx) {
+                    return idx * 10 + 100;
+                }
+            }],
+            animationEasing: 'elasticOut',
+            animationDelayUpdate: function(idx) {
+                return idx * 5;
+            }
+        };
+        myChart.setOption(option);
+    </script>
 </body>
 
 </html>
