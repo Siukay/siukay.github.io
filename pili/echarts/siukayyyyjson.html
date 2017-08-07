@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- Use echarts.js -->
+    <script src="echarts.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="siukayyy" style="width: 1000px;height:600px;"></div>
+    <script type="text/javascript">
+        $(function() {
+            // Argument 1: URL to the external JSON file
+            // Argument 2: The placeholder variable of the data loaded from external JSON file
+            $.getJSON('1234.json', function(data) {
+                console.log('data')
+                    // When entering this part, variable "data" holds the Javascript object 
+                    // corresponding to the external JSON file
+                var option = data;
+                var myChart = echarts.init(document.getElementById('siukayyy'));
+                myChart.setOption(option);
+            })
+        });
+        /*var myChart = echarts.init(document.getElementById('siukayyy'));
+        var xAxisData = [];
+        var data1 = [];
+        var data2 = [];
+        for (var i = 0; i < 100; i++) {
+            xAxisData.push('类目' + i);
+            data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
+            data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
+        }
+
+        option = {
+            title: {
+                text: '柱状图动画延迟'
+            },
+            legend: {
+                data: ['bar', 'bar2'],
+                align: 'left'
+            },
+            toolbox: {
+                // y: 'bottom',
+                feature: {
+                    magicType: {
+                        type: ['stack', 'tiled']
+                    },
+                    dataView: {},
+                    saveAsImage: {
+                        pixelRatio: 2
+                    }
+                }
+            },
+            tooltip: {},
+            xAxis: {
+                data: xAxisData,
+                silent: false,
+                splitLine: {
+                    show: false
+                }
+            },
+            yAxis: {},
+            series: [{
+                name: 'bar',
+                type: 'bar',
+                data: data1,
+                animationDelay: function(idx) {
+                    return idx * 10;
+                }
+            }, {
+                name: 'bar2',
+                type: 'bar',
+                data: data2,
+                animationDelay: function(idx) {
+                    return idx * 10 + 100;
+                }
+            }],
+            animationEasing: 'elasticOut',
+            animationDelayUpdate: function(idx) {
+                return idx * 5;
+            }
+        };
+        myChart.setOption(option);*/
+    </script>
+</body>
