@@ -1,0 +1,495 @@
+<html>
+
+<head>
+    <title>华夏边缘离中南海为何那么远？</title>
+    <meta charset="utf-8">
+    <!-- <script src="echarts-master/dist/echarts.js"></script> -->
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- <script src="customed.js"></script> -->
+    <script src="js/china.js"></script>
+    <script src="prov/angular.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- <link type="text/css" rel="stylesheet" href="WebContent/style/main.css"> -->
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+    <link type="text/css" rel="stylesheet" href="WebContent/style/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="WebContent/style/main.css">
+    <link rel="stylesheet" type="text/css" href="css/loaders.min.css">
+
+
+    <style>
+        h1 {
+            color: #fff
+        }
+        
+        #bigbig {
+            width: 100%;
+            background-color: #252525;
+            background-size: cover;
+            /* position: relative */
+        }
+        
+        #beginning {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 200px;
+        }
+        
+        #kuku {
+            height: 1000px;
+            width: 100%;
+            margin: 0px;
+            /* background-color: #252525; */
+        }
+        
+        .first {
+            margin: 20px;
+            margin-left: 171px;
+            margin-right: 171px;
+            left: 50px;
+            right: 50px;
+            line-height: 200%;
+            font-size: 16px;
+        }
+        
+        p {
+            color: white;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: show;
+        }
+        
+        .panel-body p {
+            color: #252525;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bigbig">
+        <div id="beginning">
+            <img src="background.jpg" style="width:100%"></img>
+            <!--放头图-->
+        </div>
+        <div class="first">
+            <p>借用台湾学者王明柯提出的“华夏边缘”概念，保留原概念中的“传统上属于非华夏地带的族群，在资源分配与竞争的环境中凭借集体记忆成为华夏”部分词义，并增加“受华夏中央文明认可度不高”的新内涵。而“中南海”一词则代指我国执政党的全国性领导机构中国共产党中央委员会，也就是当代华夏政治文明的权力中心。</p>
+            <br>
+            <p>一直以来，广东作为一个远离着中原传统文化中心的概念偏居一隅，长期处在一个相对尴尬的华夏边缘的位置。通过对广东籍的曾经当选过历届中央委员和中央候补委员的名单进行调查筛选，我们发现了一些有趣的现象：在数量上来看，广东籍的中央委员少之又少，仅有42人；在根据他们所属的具体民系来看，客家人在中国政治官场上占据了相当的势力；在具体人物分析上来看，我们看到有一些人之间存在着错综复杂的关系。</p>
+            <br>
+            <p>我们对建国以来（第七届到第十八届）的中国共产党全国代表大会的中央委员及中央候补委员共计2100次进行抓取统计，对他们的籍贯等信息进行筛选。</p>
+            <br>
+        </div>
+        <div id="kuku"></div>
+        <script>
+            var myChart = echarts.init(document.getElementById('kuku'));
+
+            option = {
+                title: {
+                    text: '历届中央委员与中央候补委员籍贯数量分布图',
+                    subtext: '（1949-2017）',
+                    left: 'center',
+                    textStyle: {
+                        fontWeight: 'normal', //标题颜色  
+                        color: '#ca2525',
+                        fontSize: 25
+                    },
+                    subtextStyle: {
+                        fontSize: 17
+                    }
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                // legend: {
+                //     orient: 'vertical',
+                //     left: 'left',
+                //     data: ['中国']
+                // },
+                visualMap: {
+                    min: 0,
+                    max: 250,
+                    left: 175,
+                    top: 'bottom',
+                    text: ['高', '低'], // 文本，默认为数值文本
+                    calculable: true,
+                    inRange: {
+                        color: ['white', 'lightskyblue']
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    left: 'right',
+                    top: 'center',
+                    feature: {
+                        dataView: {
+                            readOnly: false
+                        },
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                },
+                series: [{
+                    name: '中国',
+                    type: 'map',
+                    mapType: 'china',
+                    roam: false,
+                    label: {
+                        normal: {
+                            show: true
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data: [{
+                        name: "山东",
+                        value: 234
+                    }, {
+                        name: "江苏",
+                        value: 196
+                    }, {
+                        name: "河北",
+                        value: 165
+                    }, {
+                        name: "湖南",
+                        value: 158
+                    }, {
+                        name: "辽宁",
+                        value: 108
+                    }, {
+                        name: "浙江",
+                        value: 105
+                    }, {
+                        name: "湖北",
+                        value: 103
+                    }, {
+                        name: "河南",
+                        value: 102
+                    }, {
+                        name: "江西",
+                        value: 97
+                    }, {
+                        name: "陕西",
+                        value: 86
+                    }, {
+                        name: "安徽",
+                        value: 82
+                    }, {
+                        name: "四川",
+                        value: 81
+                    }, {
+                        name: "山西",
+                        value: 74
+                    }, {
+                        name: "广东",
+                        value: 42
+                    }, {
+                        name: "上海",
+                        value: 58
+                    }, {
+                        name: "福建",
+                        value: 55
+                    }, {
+                        name: "北京",
+                        value: 46
+                    }, {
+                        name: "吉林",
+                        value: 45
+                    }, {
+                        name: "黑龙江",
+                        value: 33
+                    }, {
+                        name: "天津",
+                        value: 32
+                    }, {
+                        name: "广西",
+                        value: 27
+                    }, {
+                        name: "云南",
+                        value: 24
+                    }, {
+                        name: "内蒙古",
+                        value: 21
+                    }, {
+                        name: "新疆",
+                        value: 19
+                    }, {
+                        name: "甘肃",
+                        value: 19
+                    }, {
+                        name: "贵州",
+                        value: 17
+                    }, {
+                        name: "重庆",
+                        value: 16
+                    }, {
+                        name: "西藏",
+                        value: 13
+                    }, {
+                        name: "宁夏",
+                        value: 10
+                    }, {
+                        name: "青海",
+                        value: 9
+                    }, {
+                        name: "海南",
+                        value: 8
+                    }, {
+                        name: "台湾",
+                        value: 4
+                    }, {
+                        name: "香港",
+                        value: 0
+                    }, {
+                        name: "澳门",
+                        value: 0
+                    }]
+                }]
+            };
+            //使用指定配置项和数据显示图表
+            myChart.setOption(option);
+        </script>
+
+        <div class="first">
+            <p>广东省是我国的一个人口大省，然而在历届当选中共中央委员和中央候补委员的名单当中，籍贯为广东的委员仅有44人。并且，在这44人当中，仅有42人是属于真正意义上的广东人，另有两人在现行的行政区划来说隶属于海南省，也就是说在本土文化和语言环境的概念上来说，仅有42人是在传统意义上的广东文化的背景下成长发展的。这就引起了笔者的一个思考和疑惑，在历届数据统计的2000多名中央委员和中央候补委员的籍贯中，作为人口大省的广东为何仅占了非常小的一部分？以及这仅存的四十几个人他们又是否具有独特的家庭社会背景或者宗族连带关系？由此，我们就从这44名广东籍的中央委员的具体资料数据中进行分析，并代入当时的社会时代背景进行论述和验证。</p>
+            <br>
+        </div>
+
+        <div class="col-md-5" style="margin-left:180px;background-color:#252525">
+            <!-- BodyMap -->
+            <div ng-app="dBexampleApp">
+
+                <div ng-controller="dBcontroller">
+                    <div class="col-md-8" style="background-color:#252525">
+                        <div class="row">
+                            <img src="prov/1.jpg" style="width:500px;height:400px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 10">
+                            <!--usemap="#myMap"-->
+                            <img src="prov/2.jpg" style="width:500px;height:400px; display:block" id="man2" ng-if="getAngdB() >= 10 && getAngdB() < 20">
+                            <img src="prov/3.jpg" style="width:500px;height:400px; display:block" id="man3" ng-if="getAngdB() >= 20 && getAngdB() < 31">
+                        </div>
+                        <div style="margin-left:180px" style="background-color:#252525">
+                            <!-- <h4>所属民系:</h4> -->
+                            <b style="font-size:25px;color:white;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 10">客家民系</b>
+                            <b style="font-size:25px;color:white;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 10 && getAngdB() < 20">广府民系</b>
+                            <b style="font-size:25px;color:white;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 20 && getAngdB() < 31">潮汕民系</b>
+                        </div>
+                    </div>
+                    <div class="col-md-3" id="show" style="margin-top:130px;">
+                        <div class="row">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <label for="dBValue" style="font-size:10px;color:#fff">民系选择</label>
+                            <input type="range" ng-change="dBchange()" min="0" max="30" step="10" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="height:100px;width:30px;-webkit-appearance: slider-vertical;" list="tickmarks" orient="vertical">
+                            <datalist id="tickmarks">
+                                        <option>0</option><option>10</option><option>20</option><option>30</option>
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BodyMap -->
+        </div>
+        <div class="col-md-4">
+            <p class="lead" style="text-align:left;font-size:16px;line-height:200%;">民系，指一个民族内部的分支，分支内部有共同或同类的语言、文化、风俗，相互之间互为认同。其引申生活义用来指同属一个地区有相互认同的人，不一定需要满足符合内部语言、文化、风俗相同的要求，如今民系的概念基本上仅限于中国大陆。
+            </p>
+            <p class="lead" style="text-align:left;font-size:16px;line-height:200%;">广东省主要是由广府民系、客家民系和潮汕民系组成的，那么整个广东省的语言文化就是由广府文化、客家文化和潮汕文化覆盖着的，三个民系之间的文化传统还是有比较大的差异的，尤其在语言和家庭宗族观念上存在着很大差异。其中广府文化区包括广州、佛山、清远、东莞、深圳、中山、珠海、肇庆、云浮、韶关、阳江、茂名、湛江、江门等副省市或地市，潮汕文化区包括潮州、汕头、汕尾等地市，客家文化区包括梅州、惠州、河源、深圳、揭阳等副省市或地市。
+            </p>
+            <br>
+            <br>
+        </div>
+        <div class="first">
+            <p>在上世纪50年代，广东曾先后发生过两次“反地方主义”斗争。第一次是1952年到1953年。当时，中共中央和毛泽东对广东进行了严厉的批评，认为广东土改“迷失方向，在农民问题上犯了右倾错误”，并认为方方犯了“地方主义”错误。1952年6月12日，毛泽东在北京中南海召开中央书记处关于广东问题讨论会。毛泽东宣布开会，说：“这里是最高会议，讨论广东问题。”他对着方方说：“你犯了两条错误，一是土改右倾；二是干部问题犯地方主义错误。”毛泽东继续说：“广东土改‘迷失方向’。我要打快板，方方打陧板。全国三个乌龟，广东、福建和广西。现在福建、广西上去了，广东还在爬。”其后，毛泽东又对方方说：“你做了十件工作，九件做好了，但是土改这件中心工作没有做好，因此降你一级，陶升一级。方方放你回去，让大家围攻你三天！”之后根据毛泽东的指示，华南分局在这年的6月30日至7月6日在广州召开分局扩大会议，参加者有分局委员、各部委负责同志和各地区党委、地委书记及部分地委委员、省府厅长、广州市委全体委员共128人，对方方的“右倾和地方主义错误”进行“特别严厉的批评”。叶剑英、方方、冯白驹等人分别作了检讨。方方由华南分局第三书记改为第五书记。翌年，方方再次受到批判，被撤销华南分局第五书记、广东省政府第一副主席等职务。在这之后，7000多名地方干部受到处分和牵连。</p>
+            <br>
+            <p>第二次“反地方主义”是在1957年底。在这年12月，省委作出《关于海南地方主义反党联盟和冯白驹、古大存同志的错误的决议》，报经中央批准，给予冯白驹撤销省委书记和常委职务的处分；给予古大存撤销省委书记、省人委党组副书记职务的处分。第二年，又以古大存对其错误处分不作任何检讨，对处分不服为由，报经中央批准，给予古大存撤销省委常委、副省长职务的处分。由于本案而受到批评的有省委书记尹林平，受处分的还有省委常委云广英等人，全省受处分和受牵连的地方干部达2万多人。受批判的省委委员有17人，77位省直部、厅级和地市级的地方干部都被打成地方主义分子，受到撤职或降级的处分，广州、海南等一些地方还被定为了“地方主义反党集团”。因第二次“反地方主义”是紧接着反右派斗争展开或交叉进行的，混淆了两类不同性质的矛盾，致使许多地方干部被划为右派分子，蒙冤20多年。与此同时，从上到下展开了所谓的“广东历史问题大辩论”，不仅处分了所谓的“右派群体”，还伤害了一大批与共产党长期合作的民主人士、统一战线朋友、港澳同胞以及爱国华侨。</p>
+            <br>
+            <p>这两次所谓的“反地方主义”斗争，给广东籍的官员带来了沉重的打击，直接给中共中央的广东籍贯的一整条由不同的关系锁嵌套的官员进行了一次清算。自此以来，中央内部再难以见到广东籍的官员，而在中央委员中，这一现象也是有所显现，广东籍的中央委员与中央候补委员人数也是相对较少，而这应该是与广东籍的整条关系链受到“地方主义打击”的影响有关。对于这两次“反地方主义”斗争的平反，则要说到上世纪70年代末到90年代初的将近20年了。当年，习仲勋到广东主持工作，原省委、省政府的有关领导以及一些受害者，曾经在不同场合向他反映过“反地方主义”问题。在广东，“反地方主义”是一个十分敏感的问题，这是因为不仅两次“反地方主义”是经中共中央和毛泽东批准的，而且一些当年参加过“反地方主义”的当事人还健在，有些调到北京担任重要领导职务，而在当时的省委常委中，除了习仲勋、杨尚昆同“反地方主义”没有关联外，大部分常委都参加过第二次“反地方主义”，有些人一直认为广东确实存在地方主义，古大存、冯白驹当时确实有错误。1986年10月，叶剑英逝世。胡耀邦代表中共中央致悼词，指出：“他在领导广东省的土地改革运动中，根据党中央的方针政策，同广东省的实际相结合所制定的一系列具体政策，历史证明是完全正确的。”1994年4月，中共中央政治局常委会议做出了为方方平反的决定，认为1952年对方方“土改右倾”和“地方主义”的批判，1953年对方方“官僚主义、分散主义”的批判，都是缺乏事实根据的，应予以否定。中共中央这两个评价，肯定了叶剑英、方方领导的广东土改。由此我们也可以看出，“地方主义”这个问题还是非常敏感的，整个平反时间周期拉得很长，平反阻力非常大，而这也进一步说明了许多官员对广东籍官员在政治上一直存在着的被中央所诟病的“地方主义”问题还是持着批判意见和抱有怨言的，而这或许也是由于在中央，广东籍官员原本就少那么就更容易抱团联系密切。尽管经过了平反，但是这对于广东籍的官员升迁还是有一定影响的。</p>
+            <br>
+            <p>*下面这个图将展示在广东境内的42个中央委员，您可以通过点击的效果查看相关人物的基本信息。</p>
+            <br>
+        </div>
+
+        <div id="main" style="width:800px; height:600px;"></div>
+        <div class="row mbl" id="info"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            function showProvince() {
+                var name = 'guangdong';
+
+
+                $.get('WebContent/json/guangdong.json', function(geoJson) {
+
+                    echarts.registerMap(name, geoJson);
+
+                    myChart.setOption(option = {
+                        backgroundColor: '#252525',
+                        title: {
+                            text: '广东',
+                            left: 'center',
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        },
+
+                        series: [{
+                            type: 'map',
+                            mapType: name,
+                            label: {
+                                emphasis: {
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    borderColor: '#f7ea52',
+                                    areaColor: '#fff',
+                                },
+                                emphasis: {
+                                    areaColor: '#f7ea52',
+                                    borderWidth: 0
+                                }
+                            },
+
+                            animation: false
+                                // animationDurationUpdate: 1000,
+                                // animationEasingUpdate: 'quinticInOut'
+                        }]
+                    });
+                });
+            }
+
+
+            showProvince();
+            myChart.on('click', function(city) {
+                var div = document.getElementById("info");
+                if (city.name == "惠州市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>廖承志</h2><p><strong>籍贯:</strong> 广东惠州<strong>（客府）</strong></p><p>男，1908年生，曾当选过5届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/1.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>田华贵</h2><p><strong>籍贯:</strong> 广东惠州博罗<strong>（客府）</strong></p><p>男，1933年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/7.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>廖晖</h2><p><strong>籍贯:</strong> 广东惠州<strong>（客府）</strong></p><p>男，1942年生，曾当选过6届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/41.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>潘逸阳</h2><p><strong>籍贯:</strong> 广东惠州惠阳<strong>（客府）</strong></p><p>男，1961年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/42.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "汕尾市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>谢非</h2><p><strong>籍贯:</strong> 广东汕尾陆河<strong>（客府）</strong></p><p>男，1932年生，曾当选过4届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/22.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>彭士禄</h2><p><strong>籍贯:</strong> 广东汕尾海丰<strong>（潮府）</strong></p><p>男，1925年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/20.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "韶关市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>谭甫仁</h2><p><strong>籍贯:</strong> 广东韶关仁化<strong>（客府）</strong></p><p>男，1910年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/6.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "揭阳市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>蔡诚</h2><p><strong>籍贯:</strong> 广东揭阳普宁<strong>（客府）</strong></p><p>男，1938年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/30.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "潮州市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>林若</h2><p><strong>籍贯:</strong> 广东潮州潮安<strong>（客府）</strong></p><p>男，1924年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/29.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>卢瑞华</h2><p><strong>籍贯:</strong> 广东潮州<strong>（潮府）</strong></p><p>男，1938年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/33.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "河源市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>肖扬</h2><p><strong>籍贯:</strong> 广东河源<strong>（客府）</strong></p><p>男，1938年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/36.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "深圳市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>陈郁</h2><p><strong>籍贯:</strong> 广东深圳宝安<strong>（客府）</strong></p><p>男，1901年生，曾当选过4届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/9.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "梅州市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>古大存</h2><p><strong>籍贯:</strong> 广东梅州五华<strong>（客府）</strong></p><p>男，1897年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/3.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>曾国华</h2><p><strong>籍贯:</strong> 广东梅州五华<strong>（客府）</strong></p><p>男，1910年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/5.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>刘均益</h2><p><strong>籍贯:</strong> 广东梅州梅县<strong>（客府）</strong></p><p>男，1943年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-enter'><figure><img src='image/8.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>李坚真</h2><p><strong>籍贯:</strong> 广东梅州丰顺<strong>（客府）</strong></p><p>女，1907年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/17.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>叶剑英</h2><p><strong>籍贯:</strong> 广东梅州梅县<strong>（客府）</strong></p><p>男，1897年生，曾当选过6届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/18.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>刘复之</h2><p><strong>籍贯:</strong> 广东梅州五华<strong>（客府）</strong></p><p>男，1917年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/19.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>叶选平</h2><p><strong>籍贯:</strong> 广东梅州梅县<strong>（客府）</strong></p><p>男，1924年生，曾当选过3届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/24.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>杨泰芳</h2><p><strong>籍贯:</strong> 广东梅州梅县<strong>（客府）</strong></p><p>男，1927年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/27.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>黄华华</h2><p><strong>籍贯:</strong> 广东梅州兴宁<strong>（客府）</strong></p><p>男，1946年生，曾当选过3届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/40.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>何立峰</h2><p><strong>籍贯:</strong> 广东梅州<strong>（客府）</strong></p><p>男，1955年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/44.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>万庆良</h2><p><strong>籍贯:</strong> 广东梅州<strong>（客府）</strong></p><p>男，1964年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/43.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>陈耀邦</h2><p><strong>籍贯:</strong> 广东梅州五华<strong>（客府）</strong></p><p>男，1935年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/34.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "汕头市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>许士杰</h2><p><strong>籍贯:</strong> 广东汕头澄海<strong>（潮府）</strong></p><p>男，1920年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/26.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>林树森</h2><p><strong>籍贯:</strong> 广东汕头<strong>（潮府）</strong></p><p>男，1946年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/37.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "广州市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>石少华</h2><p><strong>籍贯:</strong> 广东广州<strong>（广府）</strong></p><p>男，1918年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/12.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>梁栋材</h2><p><strong>籍贯:</strong> 广东广州<strong>（广府）</strong></p><p>男，1932年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/21.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "佛山市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>欧广源</h2><p><strong>籍贯:</strong> 广东佛山顺德<strong>（广府）</strong></p><p>男，1948年生，曾当选过3届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/38.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>区梦觉</h2><p><strong>籍贯:</strong> 广东佛山南海<strong>（广府）</strong></p><p>女，1906年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/4.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "茂名市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>王美季</h2><p><strong>籍贯:</strong> 广东茂名电白<strong>（广府）</strong></p><p>女，1942年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/11.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>戴光前</h2><p><strong>籍贯:</strong> 广东茂名电白<strong>（广府）</strong></p><p>男，1934年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/15.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "阳江市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>曾庆存</h2><p><strong>籍贯:</strong> 广东阳江<strong>（广府）</strong></p><p>男，1935年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/32.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "东莞市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>李任之</h2><p><strong>籍贯:</strong> 广东东莞<strong>（广府）</strong></p><p>男，1919年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/14.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>张帼英</h2><p><strong>籍贯:</strong> 广东东莞<strong>（广府）</strong></p><p>女，1937年生，曾当选过3届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/28.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "中山市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>郑华</h2><p><strong>籍贯:</strong> 广东中山<strong>（广府）</strong></p><p>男，1930年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/31.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>陈绍基</h2><p><strong>籍贯:</strong> 广东中山<strong>（广府）</strong></p><p>男，1945年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/39.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "江门市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>黄枢</h2><p><strong>籍贯:</strong> 广东江门台山<strong>（广府）</strong></p><p>男，1920年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/23.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>吴冷西</h2><p><strong>籍贯:</strong> 广东江门新会<strong>（广府）</strong></p><p>男，1919年生，曾当选过2届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/25.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div><div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>叶季壮</h2><p><strong>籍贯:</strong> 广东江门新兴<strong>（广府）</strong></p><p>男，1893年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/2.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "湛江市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>刘华秋</h2><p><strong>籍贯:</strong> 广东湛江吴川<strong>（广府）</strong></p><p>男，1939年生，曾当选过3届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/35.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "肇庆市") {
+                    div.innerHTML = "<div class='col-lg-4'><div class='panel'><div class='panel-body'><div class='profile'><div style='margin-bottom: 15px' class='row'><div class='col-xs-12 col-sm-8'><h2>刘瑞庆</h2><p><strong>籍贯:</strong> 广东肇庆高要<strong>（广府）</strong></p><p>男，1935年生，曾当选过1届中央委员</p></div><div class='col-xs-12 col-sm-4 text-center'><figure><img src='image/16.jpg' alt='' style='display: inline-block' class='img-responsive img-circle' /></figure></div></div></div></div></div></div>";
+                } else if (city.name == "云浮市") {
+                    div.innerHTML = "";
+                } else if (city.name == "珠海市") {
+                    div.innerHTML = "";
+                } else if (city.name == "清远市") {
+                    div.innerHTML = "";
+                }
+
+            });
+        </script>
+
+        <div class="loader" style="text-align:center">
+            <div class="ball-pulse">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="first">
+            <h4 style="color:yellow">客家人为什么那么多</h4>
+            <p>中央委员中客家人居多，多半是因为叶剑英那代打下了根基，同时，客家人的宗族观念较强，与当年为了抵御外来侵略的传统意识也有较强关系，因此客家人团结，有仕途进取心。然而，这也会更加容易受到中央的打压，当一股强有力的打击所谓的“地方势力”的东西冲撞过来的时候，整条关系链将会严重受挫，因为这也是一种潜在的危机。
+            </p>
+            <br>
+            <h4 style="color:yellow">说粤语的那帮人为啥那么分散</h4>
+            <p>由于广府民系人数众多，他们通行语言粤语传播的范围很广，因此，他们的人脉资源会相对分散化，尽管在广府文化的圈子中大家可以用粤语，但是在彼此的更加细化的具体的地方文化认同上却没能像客家人和潮汕人那么容易集中在一起，因为会说粤语的并不一定就是广府人，而这大大削弱了族群的观念。
+            </p>
+            <br>
+            <h4 style="color:yellow">潮汕人为啥那么少</h4>
+            <p>潮汕民系在宗族观念、传统家庭传统上与客家人相似，但是由于在民主革命中缺乏显著的人物，或者是有出色的先烈太早去世了，因而没能把自己人带起来，从而使得整个潮汕民系的政治传统缺乏牢固的乡情关系链。
+            </p>
+            <br>
+            <br>
+            <h3>参考文献</h3>
+            <br>
+            <p>1.杨凤春. 中国政府概要[M]. 北京大学出版社, 2002.
+            </p>
+            <p>2.刘子健. 关于广东土改的几个问题——与杜润生同志商榷[J]. 广东党史, 2001 (3): 4-13.
+            </p>
+            <p>3.杨立. 带刺的红玫瑰: 古大存沉冤录[M]. 中共广东省委党史研究室, 1997.
+            </p>
+            <p>4.叶剑英. 叶剑英在广东[M]. 中央文献出版社, 1996.
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+
+    <!-- Angualr js script for body map -->
+    <script>
+        var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
+            $scope.AngdB = 0;
+
+            $scope.getAngdB = function() {
+                return $scope.AngdB;
+            };
+            $scope.dBchange = function() {
+                $scope.AngdB = parseInt($scope.AngdB);
+            }
+        });
+    </script>
+    <!-- Angualr js script for body map -->
+
+</body>
+
+</html>
