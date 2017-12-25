@@ -1,3 +1,0 @@
-this is a test file 
-你要新建什么文件夹都可以
-只要这个siukay_github_id文件夹改了，就要更新这个repository
